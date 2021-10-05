@@ -14,13 +14,13 @@
 
 
 def find_max_chance_number(N, M):
-    temp_list = [0] * (N + M)
+    temp_list = [0] * (N + M + 3) #! +3 수정
     max_count_number = 0
     result_list = []
 
     # 1 부터 N까지 순회하는동안, 1부터 N까지 순회한다
-    for i in range(1, N):
-        for j in range(1, M):
+    for i in range(1, N + 1): #! +1 수정
+        for j in range(1, M + 1 ): #! +1 수정
 
             # 1 + 1, 1 + 2, 1 + 3,,,,2 + 1,,,,4 + 6 까지 순회하면서 추가
             n = i + j
