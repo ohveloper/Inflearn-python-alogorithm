@@ -18,13 +18,15 @@ N명의 학생 중 평균에 가장 가까운 학생은 몇 번째 학생인지 
 ## 변수명의 중요성, 변수명을 제대로 작성 안하니까 내가 더 헷갈린다.
 목적을 분명히 하고 정확하게 필요한 변수명을 작성해야 변수명만 보고도 흐름이 파악 되겠다
 '''
+
+
 def result(N, arr):
-    ave = int(sum(arr)/N + 0.5)
+    ave = int(sum(arr) / N + 0.5)
     minimum_gap = 2147000000
     result = 0
     index = 0
 
-# 입력받은 수학점수가 담긴 arr를 순회한다 (idx, score) 로 나눠서 받는다
+    # 입력받은 수학점수가 담긴 arr를 순회한다 (idx, score) 로 나눠서 받는다
     for idx, score in enumerate(arr):
 
         # 평균과 점수의 갭을 절대값으로 담아둔다
@@ -47,7 +49,8 @@ def result(N, arr):
     # 반복문을 전부다 수행한 뒤에 점수와, 해당 학생의 번호를 출력한다
     return result, index, ave
 
-print(result(5, [12,334,534,5623,4523]))
+
+print(result(5, [12, 334, 534, 5623, 4523]))
 '''
 ## 첫번째 잘못 이해한 풀이
 from functools import reduce
@@ -73,4 +76,3 @@ print(result)
 
 print(round(3.5))
 '''
-
