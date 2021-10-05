@@ -15,6 +15,7 @@ N명의 학생 중 평균에 가장 가까운 학생은 몇 번째 학생인지 
 4. 평균값 빼기 현재학생의 점수 를 절대값으로 감싸서 minimum 변수와 비교하고 더 작으면 minimum 변수를 교체한다
 5. 전부 순회한 이후에 idx 값을 출력한다
 '''
+'''
 from functools import reduce
 
 
@@ -35,3 +36,7 @@ def find(N, arr):
 
 result = find(10, [1, 2, 3, 4, 5, 23])
 print(result)
+
+print(round(3.5))
+'''
+
