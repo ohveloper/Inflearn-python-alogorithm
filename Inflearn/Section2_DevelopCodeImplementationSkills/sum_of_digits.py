@@ -24,16 +24,24 @@ def digit_sum(x):
 
     return result
 
+# 입력받은 숫자의 각 자릿수의 합을 구하는 함수 2
+def digit_sum2(x):
+    result = 0
+    for i in str(x):
+        result += int(i)
+    return result
+
 # 입력받은 어레이의 가장 큰 수를 찾는 함수
 def max_digit(arr):
     result = 0
     for i in arr:
 
         # 각자리수의 함을 구하는 함수를 사용해서 최대값을 비교
-        _max = digit_sum(i)
+        _max = digit_sum2(i)
         if _max > result:
             result = _max
-    return result
+            res = i
+    return result, res
 
 
 print(digit_sum(123))
