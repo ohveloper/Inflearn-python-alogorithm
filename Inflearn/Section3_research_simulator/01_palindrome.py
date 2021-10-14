@@ -13,12 +13,12 @@ N개의 문자열 데이터를 입력받아 앞에서 읽을 때나 뒤에서 �
 def palindrome(arr):
 
     for i in arr:
-        if i == i[::-1]:
+        if i.lower() == i[::-1].lower():
             print(i, "YES")
         else:
             print(i, "NO")
 
-palindrome(["hello", "world","you", "ollo"])
+palindrome(["hello", "world","you", "olLo"])
 
 # a = 'ollo'
 # print(a[::-1])
