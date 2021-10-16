@@ -11,7 +11,7 @@ pseudo code
 2. 숫자만 필터해서 int로 만든다
 3. 약수의 개수를 리턴한
 '''
-
+# 숫자로 만드는 방식이 복잡
 # def is_number(x):
 #     res = ''
 #     for i in x:
@@ -19,6 +19,7 @@ pseudo code
 #             res += i
 #     return int(res)
 
+# 숫자로 만드는 방식을 수학적으로 표현
 def is_num(x):
     res = 0
     for i in x:
