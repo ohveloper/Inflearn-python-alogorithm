@@ -15,7 +15,7 @@ pseudo code
 def is_number(x):
     res = ''
     for i in x:
-        if i.isdigit() and int(i) != 0:
+        if i.isdigit():
             res += i
     return int(res)
 
