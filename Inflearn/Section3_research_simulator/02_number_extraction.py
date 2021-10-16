@@ -12,15 +12,22 @@ pseudo code
 3. 약수의 개수를 리턴한
 '''
 
-def is_number(x):
-    res = ''
+# def is_number(x):
+#     res = ''
+#     for i in x:
+#         if i.isdigit():
+#             res += i
+#     return int(res)
+
+def is_num(x):
+    res = 0
     for i in x:
-        if i.isdigit():
-            res += i
-    return int(res)
+        if i.isdecimal():
+            res = res * 10 + int(i)
+    return res
 
 def cnt_measure(x):
-    num = is_number(x)
+    num = is_num(x)
     cnt = 0
     for i in range(1, num + 1):
         if num % i == 0:
