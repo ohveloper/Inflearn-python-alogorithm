@@ -19,14 +19,15 @@ def is_number(x):
             res += i
     return int(res)
 
-def cnt_measure(num):
+def cnt_measure(x):
+    num = is_number(x)
     cnt = 0
     for i in range(1, num + 1):
         if num % i == 0:
             cnt += 1
-    return cnt
+    return num, cnt
 
-print(cnt_measure(10))
+print(cnt_measure("hel0lo1wo0r0ld"))
 
 # print(is_number("hello0002233world"))
 # z = 'hello'
