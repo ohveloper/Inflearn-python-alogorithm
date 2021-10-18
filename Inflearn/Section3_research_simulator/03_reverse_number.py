@@ -6,8 +6,10 @@
 오름차순으로 한 줄로 놓여있는 20장의 카드에 대해 10개의 구간이 주어지면, 주어진 구간의 순서대로 위의 규칙에 따라 순서를 뒤집는 작업을 연속해서 처리한 뒤 마지막 카드들의 배치 를 구하는 프로그램을 작성하시오.
 '''
 
+
 # start:s, end:e
 def reverse_cards(s, e):
+
     # 0부터 20까지의 인덱스를 가지는 리스트 생성
     card_list = list(range(21))
 
@@ -17,7 +19,10 @@ def reverse_cards(s, e):
         card_list[s + i], card_list[e - i] = card_list[e - i], card_list[s + i]
 
     else:
+
+        # 0번째 0은 제거하기 위해 pop(0)
+        card_list.pop(0)
         return card_list
 
 
-print(reverse_cards(2, 10))
+print(reverse_cards(3, 5))
