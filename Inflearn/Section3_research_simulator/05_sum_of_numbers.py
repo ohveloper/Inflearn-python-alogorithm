@@ -16,7 +16,8 @@ M이 되는 경우의 수를 구하는 프로그램을 작성하시오.
 8. rt 가 N보다 커지면 종료
 '''
 
-def sum_of_numbers(N,M,arr):
+
+def sum_of_numbers(N, M, arr):
     lt = 0
     rt = 1
     cnt = 0
@@ -43,4 +44,5 @@ def sum_of_numbers(N,M,arr):
             break
     return cnt
 
-print(sum_of_numbers(8, 3, [1,2,1,3,1,1,1,3]))
+
+print(sum_of_numbers(8, 3, [1, 2, 1, 3, 1, 1, 1, 3]))
