@@ -24,6 +24,9 @@ def sum_of_numbers(N,M,arr):
 
     while True:
         if tot < M:
+
+            # 중요 # arr[rt]값을 tot에 더한 이후에 옆으로 밀어야 하는데 더할 값이 없기 때문에
+            # 중요 # else로 분기를 설정해서 while 문을 종료시킨다
             if rt < N:
                 tot += arr[rt]
                 rt += 1
@@ -40,4 +43,4 @@ def sum_of_numbers(N,M,arr):
             break
     return cnt
 
-print(sum_of_numbers(8, 3, [1,2,1,3,1,1,1,2]))
+print(sum_of_numbers(8, 3, [1,2,1,3,1,1,1,3]))
