@@ -22,6 +22,10 @@ N = 5
 2. 리스트에 합들을 다 담는다
 3. 그 중 가장 큰 수를 리턴 한다
 '''
+import time
+start = time.time()
+
+
 N = int(input())
 
 # 2차원 배열을 입력받는 방법
@@ -29,6 +33,47 @@ N = int(input())
 arr = [list(map(int, input().split())) for _ in range(N)]
 print(N, arr)
 
+# def grating_numbers(arr):
+#     largest = 0
+#     sum_width = 0
+#     sum_height = 0
+#     sum_slash = 0
+#     sum_back_slash = 0
+#     N = len(arr)
+#
+#     for i in range(N):
+#
+#         # 슬래시 더하기
+#         sum_slash += arr[i][N - i - 1]
+#
+#         # 역슬래시 더하기
+#         sum_back_slash += arr[i][i]
+#         for j in range(N):
+#
+#             # 가로축 더하기
+#             sum_width += arr[i][j]
+#
+#             # 세로축 더하기
+#             sum_height += arr[j][i]
+#
+#         if sum_width > largest:
+#             largest = sum_width
+#         if sum_height > largest:
+#             largest = sum_height
+#         sum_width = 0
+#         sum_height = 0
+#
+#     if sum_slash > largest:
+#         largest = sum_slash
+#     if sum_back_slash > largest:
+#         largest = sum_back_slash
+#
+#     return largest
+#
+# print(grating_numbers(arr))
+# 19.23054599761963
+# 5.4087018966674805
+# 2.5677478313446045
 
 def sum_width(arr):
     return sum(arr)
@@ -67,3 +112,19 @@ def grating_numbers(arr):
 
 
 print(grating_numbers(arr))
+print(time.time()-start)
+# 6.325026988983154
+# 49.23457312583923
+
+
+
+
+
+
+
+
+
+
+
+
+
