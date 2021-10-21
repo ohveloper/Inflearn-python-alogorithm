@@ -5,8 +5,49 @@
 
 n = int(input())
 a = [list(map(int, input().split())) for _ in range(n)]
-z = [3,2,5,6,2,1]
-b = [[0] * i for i in z]
 
-# print(a)
-print(b)
+
+# z = [3,2,5,6,2,1]
+# b = [[0] * i for i in z]
+#
+# # print(a)
+# print(b)
+
+def apple_tree_diamond(n, arr):
+    s = e = n // 2
+    res = 0
+    num = 1
+
+    for i in range(n):
+        for j in range(s, e + 1):
+            res += arr[i][j]
+
+        s -= num
+        e += num
+        if s == 0:
+            num *= -1
+
+    return res
+
+
+print(apple_tree_diamond(n, a))
+
+
+def apple_tree_diamond2(n, arr):
+    s = e = n // 2
+    res = 0
+
+    for i in range(n):
+        for j in range(s, e + 1):
+            res += arr[i][j]
+        if i < n // 2:
+            s -= 1
+            e += 1
+        else:
+            s += 1
+            e -= 1
+
+    return res
+
+
+print(apple_tree_diamond2(n, a))
