@@ -12,7 +12,8 @@ a = [list(map(int, input().split())) for _ in range(n)]
 #
 # # print(a)
 # print(b)
-
+'''
+최초 풀이
 def apple_tree_diamond(n, arr):
     s = e = n // 2
     res = 0
@@ -32,14 +33,25 @@ def apple_tree_diamond(n, arr):
 
 print(apple_tree_diamond(n, a))
 
+'''
+
 
 def apple_tree_diamond2(n, arr):
+
+    # 더하기를 시작할 중간지점을 s,e 에 담는다
     s = e = n // 2
     res = 0
 
+    # 첫번째 반복문, 행을 담당
     for i in range(n):
+
+        # 두번째 반복문, 행 안에서 더할 범위를 s, e로 지정
         for j in range(s, e + 1):
+
+            # 현재 행과 현재 위치를 더하기 j가 1씩 증가 i 는 고정
             res += arr[i][j]
+
+        # s,e에 맞춰서 행을 탐색하고 나면 현재 위치한 행이 중간인지 아닌지를 분기하여 변화
         if i < n // 2:
             s -= 1
             e += 1
