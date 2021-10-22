@@ -45,3 +45,27 @@ def mix_list_right(N, M, a):
 
 test = dried_persimmon(N,arr,where,lr,M)
 print(test)
+
+def last_dance(arr):
+    s = 0
+    N = len(arr)
+    e = N
+    res = 0
+    num = 1
+    for i in range(N):
+        for j in range(s, e):
+            res += arr[i][j]
+
+        s += num
+        e -= num
+        print(s,e)
+        if s == N // 2:
+            print("hello")
+            num *= -1
+
+
+
+    return res
+
+result = last_dance(test)
+print(result)
