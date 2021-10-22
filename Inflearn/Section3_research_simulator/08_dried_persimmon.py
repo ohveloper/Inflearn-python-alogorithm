@@ -5,41 +5,43 @@
 두번쨰 입력 정보가 1 이면 오른쪽으로 0이면 왼쪽으로
 
 '''
-# a = [1,2,3]
-# N = len(a)
-M = 2
-N = int(input())
-arr = [list(map(int, input().split())) for _ in range(N)]
+N = int(input("N : "))
+arr = [list(map(int, input("arr : ").split())) for _ in range(N)]
+where = int(input("where? : "))
+lr = int(input("left==0, right==1 : "))
+M = int(input("how many move? : "))
 
-a = arr[2]
+def dried_persimmon(N,arr,where,lr,M):
+    if lr == 0:
+        arr[where - 1] = mix_list_left(N, M, arr[where - 1])
+        return arr
+    else:
+        arr[where - 1] = mix_list_left(N, M, arr[where - 1])
+        return arr
 
-def mix_list_left(M, a):
+def mix_list_left(N, M, a):
     b = list(a)
     for _ in range(M):
         for i in range(N):
             if i == N - 1:
                 b[i] = a[0]
             else:
-                b[i] = a[i+1]
+                b[i] = a[i + 1]
         a = list(b)
     return a
 
-# a[0], a[1], a[2] = a[2],a[0],a[1]
-print(a)
 
-def mix_list_right(M, a):
+def mix_list_right(N, M, a):
     b = list(a)
     for _ in range(M):
         for i in range(N):
             if i == 0:
-                b[i] = a[N-1]
+                b[i] = a[N - 1]
             else:
                 b[i] = a[i - 1]
         a = list(b)
     return a
 
-print(mix_list_right(M,a))
-# z = [123,124,234]
-# z = mix_list_left(M,a)
-# print(z)
 
+test = dried_persimmon(N,arr,where,lr,M)
+print(test)
