@@ -16,3 +16,55 @@
 9. 첫번째 반복문이 중간행을 지나면 s는 - e는 +를 해준다
 10. 리턴
 '''
+# 가로세로 길이 입력
+n = int(input("n : "))
+
+# 행마다 들어갈 배열을 2차원 배열로 입력받기
+arr = [list(map(int, input("arr : ").split())) for _ in range(n)]
+
+# 좌 혹은 우로 섞을 횟수 입력
+m = int(input("m : "))
+
+# 섞어야할 횟수만큼 반복문 돌기
+for i in range(m):
+
+    # h:행, t:방향(0:왼쪽,1:오른쪽), k:몇번 입력받기
+    h, t, k = map(int, input().split())
+
+    # t=0:왼쪽, t=1:오른쪽
+    if t == 0:
+        for _ in range(k):
+
+            # 맨 앞의 요소를 뽑아내서 맨뒤로 붙이기를 k번만큼 반복
+            # 입력받은 h는 1부터 시작하기 때문에 (1행) -1을 해줘서 인덱스 위치를 맞춤
+            arr[h-1].append(arr[h-1].pop(0))
+    else:
+        for _ in range(k):
+
+            # 맨 뒤의 요소를 0번째 자리에 넣기를 k번 만큼 반복
+            # 입력받은 h는 1부터 시작하기 때문에 (1행) -1을 해줘서 인덱스 위치를 맞춤
+            arr[h-1].insert(0, arr[h-1].pop())
+
+s = 0
+e = n - 1 # index 위치로 표현하기 위해서 -1
+res = 0
+
+for i in range(n):
+    for j in range(s, e + 1):
+        res += arr[i][j]
+
+    ## 중요 포인트, 분기를 작을때로 하는지 클때로 하는지에 따라 완전 달라지는 식
+    # i 만큼 순회하는데 중반을 넘지 않았기 때문에 가운데로 모으는 식
+    if i < n // 2:
+        s += 1
+        e -= 1
+
+    # 1가 중반을 넘어가기 때문에 바깥으로 펼쳐주는 식
+    else:
+        s -= 1
+        e += 1
+
+for item in arr:
+    print(item, sep='\n')
+
+print("res : ", res)
