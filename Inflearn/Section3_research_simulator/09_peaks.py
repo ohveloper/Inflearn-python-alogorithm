@@ -20,7 +20,6 @@
 6. 위 변수상황을 제외하고는 '위, 아래, 왼쪽, 오른쪽'을 전부 비교해서 크면 cnt 를 1 늘려준다
  
 '''
-
 n = int(input())
 arr = [list(map(int, input("arr : ").split())) for _ in range(n)]
 
