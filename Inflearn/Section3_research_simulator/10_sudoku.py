@@ -28,3 +28,74 @@
 5. 순회를 마친 이후에 다 더해서 9가 되면 통과 시키고 ch_g 배열을 초기화
 6. 9가 아니면 false로 리턴 종료
 '''
+
+
+def ch_x(arr):
+    l = len(arr)
+    ch_x = [0] * (l + 1)
+
+    for i in range(l):
+        for j in range(l):
+            ch_x[arr[i][j]] = 1
+
+        if sum(ch_x) != l:
+            return False
+        else:
+            ch_x = [0] * (l + 1)
+
+    return True
+
+
+def ch_y(arr):
+    l = len(arr)
+    ch_y = [0] * (l + 1)
+
+    for i in range(l):
+        for j in range(l):
+            ch_y[arr[j][i]] = 1
+
+        if sum(ch_y) != l:
+            return False
+        else:
+            ch_y = [0] * (l + 1)
+
+    return True
+
+
+def ch_g(arr):
+    l = len(arr)
+    ch_g = [0] * (l + 1)
+    dx = [0, -1, -1, 0, 1, 1, 1, 0, -1]
+    dy = [0, 0, 1, 1, 1, 0, -1, -1, -1]
+
+    for i in range(1, l, 3):
+        for j in range(1, l, 3):
+            test = [arr[i + dx[k]][j + dy[k]] for k in range(l)]
+            for z in range(l):
+                ch_g[test[z]] = 1
+
+            if sum(ch_g) != l:
+                return False
+            else:
+                ch_g = [0] * (l + 1)
+    return True
+
+
+def sudoku_check(arr):
+    x = ch_x(arr)
+    y = ch_x(arr)
+    g = ch_g(arr)
+    if x and y and g:
+        return True, "YES"
+    return False, "NO"
+
+
+arr_true = [[1, 4, 3, 6, 2, 8, 5, 7, 9], [5, 7, 2, 1, 3, 9, 4, 6, 8], [9, 8, 6, 7, 5, 4, 2, 3, 1],
+            [3, 9, 1, 5, 4, 2, 7, 8, 6], [4, 6, 8, 9, 1, 7, 3, 5, 2], [7, 2, 5, 8, 6, 3, 9, 1, 4],
+            [2, 3, 7, 4, 8, 1, 6, 9, 5], [6, 1, 9, 2, 7, 5, 8, 4, 3], [8, 5, 4, 3, 9, 6, 1, 2, 7]]
+
+print(ch_x(arr_true))
+print(ch_y(arr_true))
+print(ch_g(arr_true))
+
+print(sudoku_check(arr_true))
