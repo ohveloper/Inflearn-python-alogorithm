@@ -18,3 +18,35 @@
 -세로검사-
 1. 
 '''
+
+
+def check(arr):
+    cnt = 0
+    for i in range(7):
+        for j in range(3):
+
+            ## 가로 검사를 위한 식
+            ## i행을 다섯칸씩 3번 검사한다
+            temp = arr[i][j:j + 5]
+            revers_temp = list(reversed(temp))
+            if temp == revers_temp:
+                # print(temp, revers_temp)
+                # print("wow")
+                cnt += 1
+
+            ## 세로 검사를 위한 식
+            ## 세로로 검사할때는 i를 고정시켜놓고 아래로 다섯칸씩 세번 검사
+            ## 세로로 다섯칸 검사할때 출발점을 j로 놓고 검사하기 위해 arr[j+m] 부터 시작
+            width = [arr[j + m][i] for m in range(5)]
+            revers_width = list(reversed(width))
+            if width == revers_width:
+                # print(width,"!!",revers_width)
+                # print("wow!!!")
+                cnt += 1
+    return cnt
+
+
+test = check(
+    [[1, 1, 2, 1, 1, 6, 7], [1, 2, 3, 4, 5, 6, 7], [1, 2, 3, 4, 5, 6, 7], [1, 2, 3, 4, 5, 6, 7], [1, 2, 3, 4, 5, 6, 7],
+     [1, 2, 3, 4, 5, 6, 7], [1, 2, 3, 4, 5, 6, 7]])
+print(test)
