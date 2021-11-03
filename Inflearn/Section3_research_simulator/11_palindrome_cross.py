@@ -29,6 +29,9 @@ def check(arr):
             ## i행을 다섯칸씩 3번 검사한다
             temp = arr[i][j:j + 5]
             revers_temp = list(reversed(temp))
+
+            ## 앞서 reverse를 하지 않고 바로 뒤집은걸 검사할수 있음
+            # if temp == temp[::-1]:
             if temp == revers_temp:
                 # print(temp, revers_temp)
                 # print("wow")

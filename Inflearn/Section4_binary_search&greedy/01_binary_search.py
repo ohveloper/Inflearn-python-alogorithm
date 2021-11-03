@@ -15,14 +15,18 @@ def bs(N, M):
 
     while True:
         if arr[mid] == M:
-            return mid
-# [1,2,3,4,5]
+            return mid + 1
+
         if arr[mid] > M:
-            rt = mid
+
+            ## mid는 아니었기 때문에 한칸 들어가서 다시 검색
+            rt = mid - 1
             mid = (lt + rt) // 2
 
         if arr[mid] < M:
-            lt = mid
+
+            ## mid는 아니었기 때문에 한칸 물러나서 다시 검색
+            lt = mid + 1
             mid = (lt + rt) // 2
 
 print(bs(N,M))
